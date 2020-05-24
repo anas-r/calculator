@@ -1,4 +1,18 @@
 $root-font-size: 1rem;
-$font-family: 'Roboto', sans-serif;
+$font-family: 'Inter', sans-serif;
 $page-width: 800px;
 $paragraph-font-size: 1.6rem;
+$calc-width: 375px;
+$btn-width: $calc-width/4;
+$calc-border: $btn-width*0.25;
+$physical-btn: 45px;
+
+$col-bg: #DAE1E7;
+$col-op: #6574CD;
+$col-reg: #E6E8FF;
+
+@mixin sm {
+  @media (min-width: 576px) {
+    @content;
+  }
+}

@@ -1,7 +1,5 @@
-@font-face {
-  font-family: 'Roboto';
-  src: url(../fonts/Roboto-Regular.ttf)
-}
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 @import 'variables';
 
@@ -9,10 +7,111 @@ html {
   font-size: $root-font-size;
   font-family: $font-family;
   max-width: $page-width;
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
 }
 
-p {
-  font-size: $paragraph-font-size;
+* {
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+
+body {
+  display: flex;
+  height: 90vh;
+  background-color: $col-bg;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+.calc {
+  margin: auto;
+  width: $calc-width;
+  border-radius: $calc-border;
+  box-shadow: 0px 10px 25px 4px rgba(0,0,0,0.19);
+
+}
+
+.screen {
+  height: $btn-width*1.618;
+  background-color: black;
+  font-size: small;
+  color: white;
+  border-radius: $calc-border $calc-border 5px 5px;
+  display: flex;
+
+
+  div {
+    margin: auto $calc-border $calc-border auto;
+  }
+
+}
+
+.buttons {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: white;
+  border-radius: 0 0 $calc-border $calc-border;
+
+  .button {
+    height: $btn-width*0.618;
+    display: flex;
+    cursor: pointer;
+    background-color: white;
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:focus > .button-circle {
+      border: 3px solid $col-op;
+    }
+
+    .button-circle {
+      margin: auto;
+      font-size: large;
+      background-color: $col-reg;
+      height: $physical-btn;
+      width: $physical-btn*1.618;
+      border-radius: $physical-btn;
+      display: flex;
+
+      .button-label {
+        margin: auto;
+      }
+    }
+  }
+
+  .operator {
+    .button-circle {
+      background-color: $col-op;
+    }
+  }
+
+
+  #zero {
+    grid-column: 1/3;
+    border-radius: 0 0 0 $calc-border;
+
+    .button-circle {
+      width: $physical-btn*2*1.618+20px;
+    }
+  }
+
+  #equal {
+    border-radius: 0 0 $calc-border 0;
+  }
+
+  #AC {
+    grid-column: 1/3;
+
+    .button-circle {
+      width: $physical-btn*2*1.618 +20px;
+    }
+  }
+
+  #power {
+    grid-column: 4/5;
+  }
 }
